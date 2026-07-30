@@ -1,0 +1,105 @@
+q()
+# Data
+income <- c("Inadequate", "Adequate", "Comfortable")
+no_convicted <- c(47, 128, 90)
+convicted <- c(43, 57, 30)
+# Combine into a data frame
+df <- data.frame(
+  Income = income,
+  No_Convicted = no_convicted,
+  Convicted = convicted
+)
+# Convert to long format
+library(reshape2)
+df_long <- melt(df, id.vars = "Income",
+                variable.name = "Conviction_Status",
+                value.name = "Count")
+# Side-by-side bar plot
+library(ggplot2)
+ggplot(df_long, aes(x = Income, y = Count, fill = Conviction_Status)) +
+  geom_bar(stat = "identity", position = "dodge") +
+  labs(title = "Convictions by Family Income Level (Cambridge Study)",
+       x = "Family Income Level",
+       y = "Number of Boys",
+       fill = "Conviction Status") +
+  theme_minimal() +
+  theme(plot.title = element_text(hjust = 0.5))
+update.packages(ask='graphics',checkBuilt=TRUE)
+utils:::menuInstallPkgs()
+update.packages(ask='graphics',checkBuilt=TRUE)
+# Data
+income <- c("Inadequate", "Adequate", "Comfortable")
+no_convicted <- c(47, 128, 90)
+convicted <- c(43, 57, 30)
+# Combine into a data frame
+df <- data.frame(
+  Income = income,
+  No_Convicted = no_convicted,
+  Convicted = convicted
+)
+# Convert to long format
+library(reshape2)
+df_long <- melt(df, id.vars = "Income",
+                variable.name = "Conviction_Status",
+                value.name = "Count")
+# Side-by-side bar plot
+library(ggplot2)
+ggplot(df_long, aes(x = Income, y = Count, fill = Conviction_Status)) +
+  geom_bar(stat = "identity", position = "dodge") +
+  labs(title = "Convictions by Family Income Level (Cambridge Study)",
+       x = "Family Income Level",
+       y = "Number of Boys",
+       fill = "Conviction Status") +
+  theme_minimal() +
+  theme(plot.title = element_text(hjust = 0.5))
+conviction_data <- matrix(
+  c(47, 43,   # Inadequate: No Conviction, Convicted
+    128, 57,  # Adequate
+    90, 30),  # Comfortable
+  nrow = 2, 
+  byrow = FALSE
+)
+# Add row and column names
+rownames(conviction_data) <- c("No Conviction", "Convicted")
+colnames(conviction_data) <- c("Inadequate", "Adequate", "Comfortable")
+# Create a side-by-side bar plot
+barplot(conviction_data,
+        beside = TRUE,                   # makes bars side by side
+        col = c("lightblue", "tomato"),  # colors for the groups
+        legend.text = TRUE,              # add legend
+        args.legend = list(x = "topright"),
+        main = "Convictions by Family Income Level (Cambridge Study)",
+        xlab = "Family Income Level",
+        ylab = "Number of Boys")
+conviction_data <- matrix(
+  c(47, 43,   
+    128, 57,  
+    90, 30),  
+  nrow = 2, 
+  byrow = FALSE
+)
+rownames(conviction_data) <- c("No Conviction", "Convicted")
+colnames(conviction_data) <- c("Inadequate", "Adequate", "Comfortable")
+barplot(conviction_data,
+        beside = TRUE,                   
+        col = c("black", "grey"), 
+        legend.text = TRUE,              
+        args.legend = list(x = "topright"),
+        main = "Convictions by Family Income Level (Cambridge Study)",
+        xlab = "Family Income Level",
+        ylab = "Number of Boys")
+stockholm <- c(1.4666667, 0.8571429, 1.3333333, 0.8352273, 1.0204082, 1.14, 1.2222222,
+               0.9808612, 1.0585366, 1.1290323, 0.5265306, 1.3333333, 0.7616279, 1.8549618,
+               1.1152263, 0.8856089, 0.6166667, 1.3513514, 0.91, 1.0989011, 0.9,
+               1.1944444, 1.0279070, 1.0, 0.8144796, 1.0666667, 1.0989583, 0.7725118,
+               1.7730061, 0.9896194, 0.7727273, 0.2805430)
+texas <- c(1.6007605, 0.7957245, 0.9582090, 1.5576324, 0.65, 1.1969231, 1.8791774,
+           0.9192886, 0.9836310, 1.1800303, 0.9, 0.6609687, 2.1250000, 1.1064909,
+           0.8038497, 1.6431015, 0.6176266, 1.0370787, 0.4572048, 1.7014218, 1.2089136,
+           1.1094470, 0.9511942, 0.9705240, 0.7457818, 0.8069382, 1.3794393, 1.2195122,
+           0.9422222, 1.0165094, 1.1218097)
+mean(stockholm)
+sd(stockholm)
+mean(texas)
+sd(texas)
+q()
