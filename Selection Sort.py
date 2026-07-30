@@ -1,11 +1,3 @@
-# Lab16v80wSelectionSort.py
-# "The Graphics Array Sorter"
-# This is the completed 80 point version of Lab 16.
-# Students have the option to use either the
-# "Bubble Sort" or the "Selection Sort" in this program.
-# This solution file uses the "Selection Sort".
-
-
 
 
 from graphics import *
@@ -60,9 +52,7 @@ drawHeading("John Smith","16")
 drawBars(numbers)
 sortBars(numbers)
 
-# The 4 lines below are only used for the
-# 80 point version.  Comment them out if
-# you are doing the 100/110 point version.
+
 delay(3000)
 reset()
 drawHeading("John Smith","16")
